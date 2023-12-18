@@ -1,0 +1,16 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+     background: linear-gradient(123deg, #3550DC 0%, #27E9F7 100%);
+}
+.container{
+    margin: 0;
+    padding: 0;
+   
+}
+.title{
+    
+}
