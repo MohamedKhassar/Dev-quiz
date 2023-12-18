@@ -1,7 +1,10 @@
+import React from 'react';
+import './Home.css';
 export default function Home() {
   return (
-    <div>
-        
+    <div className="container">
+      <div className="title">Welcome to Dev quiz</div> 
     </div>
   )
 }
+
