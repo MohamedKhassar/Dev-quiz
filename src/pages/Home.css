@@ -9,8 +9,8 @@
 body{
     overflow: hidden;
 }
-.container{
-     background:url('../assets/Welcome.jpg')  no-repeat center center/ cover;
+.containerX{
+     background:url('../assets/img/Welcome.jpg')  no-repeat center center/ cover;
      height: 100vh;
 }
 .image{
@@ -31,7 +31,7 @@ animation: animation1 5s infinite alternate;
     }
 }
 
-.title{
+.titleX{
     color: #F8B4A7;
     font-size: 64px;
     width: 700px;
