@@ -1,0 +1,45 @@
+const data=[
+    {
+        q:"",
+        a:[
+            {
+                id:1,
+                t:"",
+                answer:true
+            },
+            {
+                id:2,
+                t:"",
+                answer:false
+            },
+            {
+                id:3,
+                t:"",
+                answer:false
+            }
+
+        ]
+    },
+    {
+        q:"",
+        a:[
+            {
+                id:1,
+                t:"",
+                answer:true
+            },
+            {
+                id:2,
+                t:"",
+                answer:false
+            },
+            {
+                id:3,
+                t:"",
+                answer:false
+            }
+
+        ],
+        cat:""
+    }
+]
