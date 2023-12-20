@@ -27,7 +27,7 @@
 }
 
 .qst {
-    width: 714px;
+    width: fit-content;
     height: 29px;
     flex-shrink: 0;
     color: white;
@@ -93,4 +93,19 @@ hr {
     font-size: 16px;
     margin-top: 35px;
     border-radius: 5px;
+}
+.limit{
+    position:absolute;
+    right:90px;
+    top:50px;
+    font-family: 'Tsukimi Rounded';
+    font-weight: bold;
+    text-transform: capitalize;
+    background: #F8B4A7;
+    padding: 10px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
 }
