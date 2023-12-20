@@ -1,7 +1,5 @@
-import { useState } from 'react';
+import { useRef, useState} from 'react';
 import './Quiz.css';
-import Toastify from 'toastify-js'
-import "toastify-js/src/toastify.css"
 import questions from './data';
 import { useLocalStorage } from './useLocalStorage';
 import { useNavigate } from 'react-router-dom';
@@ -14,7 +12,7 @@ function Quiz() {
     const nav=useNavigate()
     let [correctAnswer,setCorrectAns]=useState(0)
     let [limit,setLimit]=useState(20)
-    
+    const [display, setDisplay] = useState('none');    
 
     setTimeout(
         ()=>{
@@ -41,8 +39,10 @@ function Quiz() {
             setN(question[i])
         } else {
             setI(0)
-            alert(`You answered ${correctAnswer}`)
-            nav("/")
+            if(display){
+                setDisplay('block');
+            }
+            
             
         }
         setLimit(limit=20)
@@ -67,6 +67,13 @@ function Quiz() {
                     )}
                     <p className='limit'>time remaining : {limit}</p>
                     <button className='next' onClick={nexQuestion}>Next question</button>
+                    <div className={display}>
+                        <div className="pop">
+                        <p className='p1'>You answered</p>
+                        <p className='p2'>{correctAnswer}/{question.length} </p>
+                        <button className="close" onClick={()=>nav('/')}>close</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             

@@ -109,3 +109,39 @@ hr {
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
 }
+.none{
+    display: none;
+}
+.block{
+    display: block;
+    width: 771px;
+    height: 280px;
+    background-color: #C5CBD7;
+    border-radius: 5px;
+    align-items: center;
+    position: absolute;
+    top: 27%;
+    padding: 0.5rem;
+    font-family: Iceberg;
+    
+}
+.block .pop{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1rem;
+}
+.pop p{
+    color: #F8B4A7;
+    font-size: 64px;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+.pop button{
+    background: linear-gradient(#DC3535, #2C4B82);
+    width: 344px;
+    height: 51.59px;
+    color: white;
+    font-size: 16px;
+}
