@@ -79,6 +79,7 @@ hr {
     flex-shrink: 0;
     border: none;
     font-size: 20px;
+    cursor: pointer;
 
 }
 
