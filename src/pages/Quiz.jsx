@@ -8,22 +8,28 @@ function Quiz() {
     const question = questions.filter(q => q.category === getItem())
     let [i, setI] = useState(0);
     const [next, setN] = useState(question[i])
-    console.log(next);
-    const [answers,setAns]=useState([])
+    const [answer,setAns]=useState("")
     const nav=useNavigate()
-
-
+    let [correctAnswer,setCorrectAns]=useState(0)
+    
+    
+    console.log(answer);
     const nexQuestion = () => {
         if (i < question.length - 1) {
+            
+            console.log(question[i].correctAnswer);
+            if (question[i].correctAnswer===answer) {
+                alert("correct")
+                setCorrectAns(correctAnswer+=1)
+            }
             setI(i+=1)
             setN(question[i])
         } else {
             setI(0)
-            nav("/start")
+            alert(`You answered ${correctAnswer}`)
+            nav("/")
 
         }
-
-        console.log(next);
     }
     return (
         <>
@@ -34,10 +40,10 @@ function Quiz() {
                 <p className="qst">{next.question}</p>
                 <p className='number'>{i+1}/{question.length}</p>
                 <div className='options'>
-                    {next.options.map(q => {
+                    {next.options.map((q,i) => {
                         return (
 
-                            <button key={next.id} value={q} onClick={(e)=>setAns(e.target.value)}>{q}</button>
+                            <button key={i} onClick={(e)=>setAns(e.target.value)} value={q}>{q}</button>
                             )
                     }
 
