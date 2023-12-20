@@ -1,7 +1,6 @@
 import { useState } from "react"
 import "./start.css"
 import { useNavigate } from "react-router-dom"
-import questions from "../data"
 import { useLocalStorage } from "../useLocalStorage"
 export default function Start() {
     const [major, setM] = useState("")
