@@ -86,7 +86,8 @@ body {
 
 
 .major-btn:active {
-        background: #fa6d51;        
+        background: #fa6d51; 
+        right:;       
 }
 
 .start-btn {

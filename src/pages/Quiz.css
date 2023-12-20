@@ -71,7 +71,7 @@ hr {
 }
 
 .options button {
-    color: white;
+    color: rgb(0, 0, 0);
     background-color: #F8B4A7;
     width: 737px;
     height: 27px;
@@ -89,7 +89,7 @@ hr {
     flex-shrink: 0;
     background:linear-gradient(#3550DC, #27E9F7) ;
     border: none;
-    color: white;  
+    color: rgb(0, 0, 0);  
     font-size: 16px;
     margin-top: 35px;
     border-radius: 5px;
