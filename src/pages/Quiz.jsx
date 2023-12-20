@@ -24,10 +24,8 @@ function Quiz() {
             }
             
         },1000)
-        
-        
-        // console.log(limit);
-    
+  
+          
     const nexQuestion = () => {
         if (i < question.length - 1) {
             
@@ -47,6 +45,7 @@ function Quiz() {
             
         }
         setLimit(limit=20)
+
     }
     
     return (

@@ -63,6 +63,7 @@ button, .number {
     align-items: center;
 }
 
+
 hr {
     width: 263.002px;
     height: 2px;
@@ -109,7 +110,6 @@ hr {
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
 }
-
 .none{
     display: none;
 }
