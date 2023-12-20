@@ -15,6 +15,7 @@ function Quiz() {
     const [display, setDisplay] = useState('none');    
 
     setTimeout(
+        
         ()=>{
             setLimit(limit-=1)
             if (limit===0) {
