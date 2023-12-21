@@ -11,9 +11,9 @@ function Quiz() {
     const [answer,setAns]=useState("")
     const nav=useNavigate()
     let [correctAnswer,setCorrectAns]=useState(0)
+    const {setItem}=useLocalStorage("correctAns")
     let [limit,setLimit]=useState(60)
-    const [display, setDisplay] = useState('none');    
-    
+    const [display, setDisplay] = useState('none');
 
 useEffect ( ()=>{
     const timeOut=setTimeout(
@@ -33,7 +33,6 @@ useEffect ( ()=>{
     const nexQuestion = () => {
         if (i < question.length - 1) {
             
-            console.log(question[i].correctAnswer);
             if (question[i].correctAnswer===answer) {
                 
                 setCorrectAns(correctAnswer+=1)
@@ -78,7 +77,7 @@ useEffect ( ()=>{
                         <div className="pop">
                         <p className='p1'>Correct answers</p>
                         <p className='p2'>{correctAnswer}/{question.length} </p>
-                        <button className="close" onClick={()=>nav('/')}>close</button>
+                        <button className="close" onClick={()=>{setItem((correctAnswer*100)/question.length);nav('/')}}>close</button>
                         </div>
                     </div>
         </>
