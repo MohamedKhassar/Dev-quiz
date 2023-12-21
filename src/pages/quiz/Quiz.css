@@ -7,6 +7,7 @@
     padding-top: 60px;
     
 }
+
 .cat {
     width: 673px;
     height: 76px;
@@ -39,7 +40,7 @@
 .qst,
 button, .number {
     font-family: 'Tsukimi Rounded';
-
+    
 }
 
 .number {
@@ -71,7 +72,7 @@ hr {
     
 }
 
-.options button {
+.options .answer-btn {
     color: rgb(0, 0, 0);
     background-color: #F8B4A7;
     width: 737px;
@@ -81,7 +82,7 @@ hr {
     border: none;
     font-size: 20px;
     cursor: pointer;
-
+    
 }
 
 .options .next {
@@ -133,7 +134,7 @@ hr {
     align-items: center;
     row-gap: 1rem;
     
-
+    
 }
 .pop p{
     color: #F8B4A7;
@@ -160,3 +161,7 @@ hr {
     filter: blur(4px);
     -webkit-filter: blur(4px);
 }
+.outline-ans {
+            border: black solid 1px;
+            background: #fa6d51; 
+    }

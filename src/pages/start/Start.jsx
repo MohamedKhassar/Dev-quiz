@@ -5,10 +5,27 @@ import { useLocalStorage } from "../useLocalStorage"
 export default function Start() {
     const [major, setM] = useState("")
     
-    const {setItem}=useLocalStorage("major")
+    const {setItem}=useLocalStorage("user")
+    const {getItem}=useLocalStorage("user")
     
- 
+    const value={...getItem(),major}
     
+    const handelClick=(e)=>{
+        setM(e.target.value)
+        const buttons=document.querySelectorAll(".major-btn")
+        buttons.forEach(button => {
+            // Check if the "outline" class exists in the current button's classList
+            const hasOutlineClass = button.classList.contains("outline");
+          
+            if (hasOutlineClass) {
+              button.classList.remove("outline")
+              // Do something when the "outline" class is present
+            }
+            return e.target.classList.add("outline")
+            // Do something when the "outline" class is not present
+          });
+    
+}
 
     const nav = useNavigate()
     return (
@@ -18,10 +35,10 @@ export default function Start() {
                 <div className="animation">
                 </div>
                 <div className="code-sym">
-                    <button className="major-btn" onClick={(e) => setM(e.target.value)} value="Full-stack">Full-Stack</button>
-                    <button className="major-btn" onClick={(e) => setM(e.target.value)} value="Frontend">Front-End</button>
-                    <button className="major-btn" onClick={(e) => setM(e.target.value)} value="Backend">Back-End</button>
-                    <button className="start-btn" onClick={() => {setItem(major) ;nav("/quiz")}}>Start Quiz</button>
+                    <button className="major-btn" onClick={handelClick} value="Full-stack">Full-Stack</button>
+                    <button className="major-btn" onClick={handelClick} value="Frontend">Front-End</button>
+                    <button className="major-btn" onClick={handelClick} value="Backend">Back-End</button>
+                    <button className="start-btn" onClick={() => {setItem(value) ;nav("/quiz")}}>Start Quiz</button>
                 </div>
             </div>
         </div>
