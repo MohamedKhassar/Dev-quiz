@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/home/Home'
 import Start from './pages/start/Start'
 import Quiz from './pages/quiz/Quiz'
-import Form from './pages/form/form'
+import Form from './pages/form/Form'
 
 
 function App() {
