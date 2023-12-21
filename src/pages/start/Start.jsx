@@ -7,7 +7,7 @@ export default function Start() {
     
     const {setItem}=useLocalStorage("major")
     
-
+ 
     
 
     const nav = useNavigate()

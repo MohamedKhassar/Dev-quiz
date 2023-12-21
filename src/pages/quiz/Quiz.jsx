@@ -1,7 +1,7 @@
-import { useRef, useState} from 'react';
+import { useEffect, useState} from 'react';
 import './Quiz.css';
-import questions from './data';
-import { useLocalStorage } from './useLocalStorage';
+import questions from '../data';
+import { useLocalStorage } from '../useLocalStorage';
 import { useNavigate } from 'react-router-dom';
 function Quiz() {
     const { getItem } = useLocalStorage("major")
@@ -14,7 +14,8 @@ function Quiz() {
     let [limit,setLimit]=useState(20)
     const [display, setDisplay] = useState('none');    
 
-    setTimeout(
+ useEffect ( ()=>{
+    const timeOut=setTimeout(
         
         ()=>{
             setLimit(limit-=1)
@@ -22,8 +23,10 @@ function Quiz() {
                 nexQuestion()
                 
             }
-            
+             
         },1000)
+        return ()=> clearTimeout(timeOut)  //clean up when the component unmounts
+ },[limit])
   
           
     const nexQuestion = () => {
@@ -50,8 +53,8 @@ function Quiz() {
     
     return (
         <>
-            <div className="all">
-                <h1 className="cat">Full-Stack<hr />
+            <div className={`all ${display=="block" && "blur"}`}>
+                <h1 className="cat">{getItem()}<hr />
                 </h1>
 
                 <p className="qst">{next.question}</p>
@@ -65,18 +68,18 @@ function Quiz() {
                     }
 
                     )}
-                    <p className='limit'>time remaining : {limit}</p>
+                    <p className={`limit ${display=="block" && "none"}`}>time remaining : {limit}</p>
                     <button className='next' onClick={nexQuestion}>Next question</button>
-                    <div className={display}>
+                    
+                </div>
+            </div>
+            <div className={display}>
                         <div className="pop">
                         <p className='p1'>You answered</p>
                         <p className='p2'>{correctAnswer}/{question.length} </p>
                         <button className="close" onClick={()=>nav('/')}>close</button>
                         </div>
                     </div>
-                </div>
-            </div>
-            
         </>
     )
 }

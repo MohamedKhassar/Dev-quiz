@@ -122,9 +122,9 @@ hr {
     align-items: center;
     position: absolute;
     top: 27%;
+    left: 21%;
     padding: 0.5rem;
     font-family: Iceberg;
-    
 }
 .block .pop{
     display: flex;
@@ -132,6 +132,8 @@ hr {
     justify-content: center;
     align-items: center;
     row-gap: 1rem;
+    
+
 }
 .pop p{
     color: #F8B4A7;
@@ -145,4 +147,16 @@ hr {
     height: 51.59px;
     color: white;
     font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    cursor: pointer;
+}
+
+.blur{
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
 }

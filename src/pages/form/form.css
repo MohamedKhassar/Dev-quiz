@@ -1,0 +1,7 @@
+.container-form{
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    column-gap: 90px;
+}
