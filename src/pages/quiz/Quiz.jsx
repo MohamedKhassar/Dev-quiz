@@ -11,7 +11,7 @@ function Quiz() {
     const [answer,setAns]=useState("")
     const nav=useNavigate()
     let [correctAnswer,setCorrectAns]=useState(0)
-    const {setItem}=useLocalStorage("correctAns")
+    const {setItem}=useLocalStorage("user")
     let [limit,setLimit]=useState(60)
     const [display, setDisplay] = useState('none');
 
@@ -77,7 +77,7 @@ useEffect ( ()=>{
                         <div className="pop">
                         <p className='p1'>Correct answers</p>
                         <p className='p2'>{correctAnswer}/{question.length} </p>
-                        <button className="close" onClick={()=>{setItem((correctAnswer*100)/question.length);nav('/')}}>close</button>
+                        <button className="close" onClick={()=>{setItem((correctAnswer*100)/question.length);nav('/result')}}>Move to Final Result</button>
                         </div>
                     </div>
         </>
