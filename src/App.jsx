@@ -4,7 +4,7 @@ import Home from './pages/home/Home'
 import Start from './pages/start/Start'
 import Quiz from './pages/quiz/Quiz'
 import Form from './pages/form/Form'
-
+import Result from './pages/result/Result'
 
 function App() {
 
@@ -15,6 +15,8 @@ function App() {
       <Route path='/form' exact element={<Form />}/>
       <Route path='/start' exact element={<Start />}/>
       <Route path='/quiz' exact element={<Quiz />}/>
+      <Route path='/result' exact element={<Result />}/>
+
     </Routes>
     </BrowserRouter>
   )
