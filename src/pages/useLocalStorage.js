@@ -6,7 +6,7 @@ export const useLocalStorage=(key)=>{
         const item=window.localStorage.getItem(key)
         if(item){
             return JSON.parse(item)
-        }
+        } 
     }
     return {setItem,getItem}
 }

@@ -11,10 +11,11 @@ function Quiz() {
     const [answer,setAns]=useState("")
     const nav=useNavigate()
     let [correctAnswer,setCorrectAns]=useState(0)
-    let [limit,setLimit]=useState(20)
-    const [display, setDisplay] = useState('none');    
+    const {setItem}=useLocalStorage("correctAns")
+    let [limit,setLimit]=useState(60)
+    const [display, setDisplay] = useState('none');
 
- useEffect ( ()=>{
+useEffect ( ()=>{
     const timeOut=setTimeout(
         
         ()=>{
@@ -32,7 +33,6 @@ function Quiz() {
     const nexQuestion = () => {
         if (i < question.length - 1) {
             
-            console.log(question[i].correctAnswer);
             if (question[i].correctAnswer===answer) {
                 
                 setCorrectAns(correctAnswer+=1)
@@ -47,7 +47,7 @@ function Quiz() {
             
             
         }
-        setLimit(limit=20)
+        setLimit(limit=60)
 
     }
     
@@ -68,16 +68,16 @@ function Quiz() {
                     }
 
                     )}
-                    <p className={`limit ${display=="block" && "none"}`}>time remaining : {limit}</p>
+                    <p className={`limit ${display=="block" && "none"}`}>time remaining : {limit==60?"1:00":`00:${limit<10?`0${limit}`:limit}`}</p>
                     <button className='next' onClick={nexQuestion}>Next question</button>
                     
                 </div>
             </div>
             <div className={display}>
                         <div className="pop">
-                        <p className='p1'>You answered</p>
+                        <p className='p1'>Correct answers</p>
                         <p className='p2'>{correctAnswer}/{question.length} </p>
-                        <button className="close" onClick={()=>nav('/')}>close</button>
+                        <button className="close" onClick={()=>{setItem((correctAnswer*100)/question.length);nav('/')}}>close</button>
                         </div>
                     </div>
         </>
