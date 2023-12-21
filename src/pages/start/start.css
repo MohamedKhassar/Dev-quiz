@@ -84,7 +84,8 @@ body {
 }
 
 
-.major-btn:active {
+.outline {
+    border: black solid 1px;
         background: #fa6d51; 
 }
 

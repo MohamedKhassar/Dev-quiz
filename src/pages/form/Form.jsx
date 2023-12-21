@@ -22,13 +22,13 @@ export default function Form() {
             <input type="text" id='name' name='firstName' placeholder='Enter your first name' onChange={(e)=>setName(e.target.value)} />
           </div>
           <div className="last">
-            <label htmlFor="name">Last name</label>
-            <input type="text" id='lasName' name='lastName' placeholder='Enter your last name' onChange={(e)=>setLast(e.target.value)} />
+            <label htmlFor="lastName">Last name</label>
+            <input type="text" id='lastName' name='lastName' placeholder='Enter your last name' onChange={(e)=>setLast(e.target.value)} />
           </div>
         </div>
         <div className="email">
         <label htmlFor="email">Email</label>
-        <input type='mail' id='email' name='email' value={FormData.email} placeholder='Enter your email' onChange={(e)=>setEmail(e.target.value)} />
+        <input type='email' id='email' name='email' value={FormData.email} placeholder='Enter your email' onChange={(e)=>setEmail(e.target.value)} />
         </div>
         <button className='start-btn' onClick={()=>{setItem({name,last,email});nav("/start")}}>Start Quiz</button>
         </form>
