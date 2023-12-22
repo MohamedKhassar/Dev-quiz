@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceberg&family=Inter:wght@400;600;700&family=Roboto+Mono:ital,wght@1,200&family=Rubik:wght@400;500;600;700&family=Silkscreen&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow: hidden;
+}
+.containerX{
+     background:url('../../assets/img/Welcome.jpg')  no-repeat center center/ cover;
+     height: 100vh;
+}
+.image{
+position: absolute;
+width: 342px;
+height: 357px;
+left: 212px;
+top: 242px;
+background: url("/src/assets/image.png" )no-repeat center center/ cover;
+animation: animation1 5s infinite alternate;
+}
+@keyframes animation1 {
+    0%{
+        rotate: -90deg;
+    }
+    100%{
+        rotate: 360deg;
+    }
+}
+
+.titleX{
+    color: #F8B4A7;
+    font-size: 64px;
+    width: 700px;
+    height: 76px;
+    transform: translate(47px, 90px);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    font-family: 'Iceberg';
+}
