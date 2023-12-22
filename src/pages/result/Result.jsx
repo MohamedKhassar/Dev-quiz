@@ -1,30 +1,16 @@
 import './result.css';
 import { useLocalStorage } from "../useLocalStorage";
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Result() {
 
   const { getItem } = useLocalStorage("user")
-  // const nav = useNavigate()
+  const nav = useNavigate()
 
-  // useEffect(()=>{
-  //   const clearLocalStorage=()=>{
-
-  //     localStorage.clear()
-  //   }
-  //   // Clear localStorage when the component is mounted
-  //   return () => {
-  //     // Add an event listener to the beforeunload event
-  //     window.addEventListener('beforeunload', clearLocalStorage);
-  //     nav("/")
-
-  //     // Cleanup the event listener when the component is unmounted
-  //     return () => {
-  //       window.removeEventListener('beforeunload', clearLocalStorage);
-  //     };
-  //   };
-  // });
+  const close=()=>{
+    localStorage.clear()
+    nav("/")
+  }
   
   return (
     <div className="wrapped">
@@ -38,7 +24,7 @@ export default function Result() {
           <div className="score"><p>Score :</p><p>{getItem().score}%</p></div>
 
         </div>
-        <button className="close" >close</button>
+        <button className="close" onClick={close}>close</button>
       </div>
 
     </div>

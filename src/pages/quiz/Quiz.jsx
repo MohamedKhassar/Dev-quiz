@@ -15,6 +15,7 @@ function Quiz() {
     let [limit,setLimit]=useState(60)
     const [display, setDisplay] = useState('none');
     const value={...getItem(),score:Math.round((correctAnswer*100)/question.length)}
+    const buttons=document.querySelectorAll("button")
 
 useEffect ( ()=>{
     const timeOut=setTimeout(
@@ -49,21 +50,31 @@ useEffect ( ()=>{
             
         }
         setLimit(limit=60)
+        buttons.forEach(button => {
+            // Check if the "outline" class exists in the current button's classList
+            const hasOutlineClass = button.classList.contains('outline');
+          
+            if (hasOutlineClass) {
+              button.classList.remove('outline')
+              // Do something when the "outline" class is present
+            }
+            // Do something when the "outline" class is not present
+          });
+        
 
     }
 
     const handelClick=(e)=>{
         setAns(e.target.value)
-        const buttons=document.querySelectorAll("button")
         buttons.forEach(button => {
             // Check if the "outline" class exists in the current button's classList
-            const hasOutlineClass = button.classList.contains('outline-ans');
+            const hasOutlineClass = button.classList.contains('outline');
           
             if (hasOutlineClass) {
-              button.classList.remove('outline-ans')
+              button.classList.remove('outline')
               // Do something when the "outline" class is present
             }
-            return e.target.classList.add('outline-ans')
+            return e.target.classList.add('outline')
             // Do something when the "outline" class is not present
           });
     
