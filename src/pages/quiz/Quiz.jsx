@@ -15,7 +15,8 @@ function Quiz() {
     let [limit,setLimit]=useState(60)
     const [display, setDisplay] = useState('none');
     const value={...getItem(),score:Math.round((correctAnswer*100)/question.length)}
-    const buttons=document.querySelectorAll("button")
+    const [event,setE]=useState(null)
+    // console.log(answer);
 
 useEffect ( ()=>{
     const timeOut=setTimeout(
@@ -32,7 +33,7 @@ useEffect ( ()=>{
  },[limit])
   
           
-    const nexQuestion = () => {
+    const nexQuestion = (e) => {
         if (i < question.length - 1) {
             
             if (question[i].correctAnswer===answer) {
@@ -50,34 +51,35 @@ useEffect ( ()=>{
             
         }
         setLimit(limit=60)
-        buttons.forEach(button => {
-            // Check if the "outline" class exists in the current button's classList
-            const hasOutlineClass = button.classList.contains('outline');
-          
-            if (hasOutlineClass) {
-              button.classList.remove('outline')
-              // Do something when the "outline" class is present
-            }
-            // Do something when the "outline" class is not present
-          });
+        if (event==null) {
+            e.target.classList.add('outline')
+            setE(e)
+        }
+        else{
+            
+            event.target.classList.remove('outline')
+            e.target.classList.add('outline')
+            setE(e)
+            
+        }   
+        setAns(e.target.value)
         
 
     }
 
     const handelClick=(e)=>{
-        setAns(e.target.value)
-        buttons.forEach(button => {
-            // Check if the "outline" class exists in the current button's classList
-            const hasOutlineClass = button.classList.contains('outline');
-          
-            if (hasOutlineClass) {
-              button.classList.remove('outline')
-              // Do something when the "outline" class is present
-            }
-            return e.target.classList.add('outline')
-            // Do something when the "outline" class is not present
-          });
-    
+        if (event==null) {
+            e.target.classList.add('outline')
+            setE(e)
+        }
+        else{
+            
+            event.target.classList.remove('outline')
+            e.target.classList.add('outline')
+            setE(e)
+            
+        }   
+        setAns(e.target.value) 
           
 }
     
@@ -93,7 +95,7 @@ useEffect ( ()=>{
                     {next.options.map((q,i) => {
                         return (
 
-                            <button key={i} className='answer-btn' onClick={handelClick} value={q}>{q}</button>
+                            <button key={i} className='answer-btn'  onClick={handelClick} value={q}>{q}</button>
                             )
                     }
 

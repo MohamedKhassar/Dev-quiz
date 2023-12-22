@@ -1,20 +1,24 @@
 import './result.css';
 import { useLocalStorage } from "../useLocalStorage";
 import { useNavigate } from 'react-router-dom';
+import animationData from '../../assets/lottie/congrats.json'
+import Lottie from 'lottie-react';
 
 export default function Result() {
 
   const { getItem } = useLocalStorage("user")
   const nav = useNavigate()
 
-  const close=()=>{
+  const close = () => {
     localStorage.clear()
     nav("/")
   }
-  
+
   return (
     <div className="wrapped">
-
+      <div style={{ position:"absolute" }}>
+        <Lottie loop={false} width={"90%"} animationData={animationData}   />
+        </div>
       <div className="list">
         <h1 className="title">Final Result</h1>
         <div className="list1">
