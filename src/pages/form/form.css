@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Tsukimi";
+    src: url("../../assets/fonts/Tsukimi_Rounded/TsukimiRounded-Regular.ttf");
+}
+
 .container-form {
     background: url('../../assets/img/Welcome.jpg') no-repeat center center/ cover;
     height: 100vh;
@@ -37,6 +42,10 @@
     width: 664px;
     display: flex;
     flex-direction: column;
+    -webkit-transform: translate(70px, 230px);
+    -moz-transform: translate(70px, 230px);
+    -ms-transform: translate(70px, 230px);
+    -o-transform: translate(70px, 230px);
 }
 
 .name {
@@ -79,4 +88,24 @@ label {
     font-weight: 400;
     line-height: 28px;
 
+}
+
+.alert{
+    color: rgb(129, 0, 0);
+    font-weight: bolder;
+    font-size: larger;
+    font-family: Tsukimi;
+    text-transform: capitalize;
+    transform: translate(70px, 260px);
+    -webkit-transform: translate(70px, 260px);
+    -moz-transform: translate(70px, 260px);
+    -ms-transform: translate(70px, 260px);
+    -o-transform: translate(70px, 260px);
+}
+
+.none-alert{
+    display: none;
+}
+.block-alert{
+    display: block;
 }
