@@ -7,6 +7,7 @@
     padding-top: 60px;
     
 }
+
 .cat {
     width: 673px;
     height: 76px;
@@ -39,7 +40,7 @@
 .qst,
 button, .number {
     font-family: 'Tsukimi Rounded';
-
+    
 }
 
 .number {
@@ -71,19 +72,24 @@ hr {
     
 }
 
-.options button {
+.options .answer-btn {
     color: rgb(0, 0, 0);
     background-color: #F8B4A7;
     width: 737px;
-    height: 27px;
+    height: fit-content;
     border-radius: 5px;
     flex-shrink: 0;
     border: none;
     font-size: 20px;
     cursor: pointer;
-
+    padding: 5px;
+    
 }
-
+.options .outline {
+        border: black solid .5px;
+            background: #fa6d51; 
+         
+}
 .options .next {
     width:344px;
     height: 51.59px;
@@ -94,6 +100,7 @@ hr {
     font-size: 16px;
     margin-top: 35px;
     border-radius: 5px;
+    cursor: pointer;
 }
 .limit{
     position:absolute;
@@ -133,7 +140,7 @@ hr {
     align-items: center;
     row-gap: 1rem;
     
-
+    
 }
 .pop p{
     color: #F8B4A7;

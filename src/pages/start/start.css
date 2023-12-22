@@ -84,7 +84,8 @@ body {
 }
 
 
-.major-btn:active {
+.outline {
+    border: black solid 1px;
         background: #fa6d51; 
 }
 
@@ -108,3 +109,23 @@ body {
     -ms-transition: all .3s;
     -o-transition: all .3s;      
     }
+
+.alert-start{
+    color: rgb(129, 0, 0);
+    font-weight: bolder;
+    font-size: larger;
+    font-family: Tsukimi;
+    text-transform: capitalize;
+    transform: translate(70px, 260px);
+    -webkit-transform: translateX(890px);
+    -moz-transform: translate(70px, 260px);
+    -ms-transform: translate(70px, 260px);
+    -o-transform: translate(70px, 260px);
+}
+
+.none-start{
+    display: none;
+    }
+.block-start{
+    display: block;
+}

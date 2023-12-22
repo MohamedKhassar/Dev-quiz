@@ -4,8 +4,8 @@ import questions from '../data';
 import { useLocalStorage } from '../useLocalStorage';
 import { useNavigate } from 'react-router-dom';
 function Quiz() {
-    const { getItem } = useLocalStorage("major")
-    const question = questions.filter(q => q.category === getItem())
+    const { getItem } = useLocalStorage("user")
+    const question = questions.filter(q => q.category == getItem().major)
     let [i, setI] = useState(0);
     const [next, setN] = useState(question[i])
     const [answer,setAns]=useState("")
@@ -14,6 +14,9 @@ function Quiz() {
     const {setItem}=useLocalStorage("user")
     let [limit,setLimit]=useState(60)
     const [display, setDisplay] = useState('none');
+    const value={...getItem(),score:Math.round((correctAnswer*100)/question.length)}
+    const [event,setE]=useState(null)
+    // console.log(answer);
 
 useEffect ( ()=>{
     const timeOut=setTimeout(
@@ -30,7 +33,7 @@ useEffect ( ()=>{
  },[limit])
   
           
-    const nexQuestion = () => {
+    const nexQuestion = (e) => {
         if (i < question.length - 1) {
             
             if (question[i].correctAnswer===answer) {
@@ -48,13 +51,42 @@ useEffect ( ()=>{
             
         }
         setLimit(limit=60)
+        if (event==null) {
+            e.target.classList.add('outline')
+            setE(e)
+        }
+        else{
+            
+            event.target.classList.remove('outline')
+            e.target.classList.add('outline')
+            setE(e)
+            
+        }   
+        setAns(e.target.value)
+        
 
     }
+
+    const handelClick=(e)=>{
+        if (event==null) {
+            e.target.classList.add('outline')
+            setE(e)
+        }
+        else{
+            
+            event.target.classList.remove('outline')
+            e.target.classList.add('outline')
+            setE(e)
+            
+        }   
+        setAns(e.target.value) 
+          
+}
     
     return (
         <>
-            <div className={`all ${display=="block" && "blur"}`}>
-                <h1 className="cat">{getItem()}<hr />
+            <div className={`all ${display=="block" && "blur"}`} >
+                <h1 className="cat">{getItem().major}<hr />
                 </h1>
 
                 <p className="qst">{next.question}</p>
@@ -63,13 +95,13 @@ useEffect ( ()=>{
                     {next.options.map((q,i) => {
                         return (
 
-                            <button key={i} onClick={(e)=>setAns(e.target.value)} value={q}>{q}</button>
+                            <button key={i} className='answer-btn'  onClick={handelClick} value={q}>{q}</button>
                             )
                     }
 
                     )}
                     <p className={`limit ${display=="block" && "none"}`}>time remaining : {limit==60?"1:00":`00:${limit<10?`0${limit}`:limit}`}</p>
-                    <button className='next' onClick={nexQuestion}>Next question</button>
+                    <button className='next' onClick={nexQuestion}  disabled={display==="block"&&true} style={{ cursor:display==="block"&&"auto" }}>Next question</button>
                     
                 </div>
             </div>
@@ -77,7 +109,7 @@ useEffect ( ()=>{
                         <div className="pop">
                         <p className='p1'>Correct answers</p>
                         <p className='p2'>{correctAnswer}/{question.length} </p>
-                        <button className="close" onClick={()=>{setItem((correctAnswer*100)/question.length);nav('/result')}}>Move to Final Result</button>
+                        <button className="close" onClick={()=>{setItem(value);nav('/result')}}>Move to Final Result</button>
                         </div>
                     </div>
         </>
