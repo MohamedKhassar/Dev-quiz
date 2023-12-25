@@ -15,7 +15,8 @@ function Quiz() {
     let [limit,setLimit]=useState(60)
     const [display, setDisplay] = useState('none');
     const value={...getItem(),score:Math.round((correctAnswer*100)/question.length)}
-    const [event,setE]=useState(null)
+    const [lastBtn, setLastBtn] = useState()
+
     // console.log(answer);
 
 useEffect ( ()=>{
@@ -51,15 +52,15 @@ useEffect ( ()=>{
             
         }
         setLimit(limit=60)
-        if (event==null) {
+        if (lastBtn==null) {
             e.target.classList.add('outline')
-            setE(e)
+            setLastBtn(e)
         }
         else{
             
-            event.target.classList.remove('outline')
+            lastBtn.target.classList.remove('outline')
             e.target.classList.add('outline')
-            setE(e)
+            setLastBtn(e)
             
         }   
         setAns(e.target.value)
@@ -68,15 +69,15 @@ useEffect ( ()=>{
     }
 
     const handelClick=(e)=>{
-        if (event==null) {
+        if (lastBtn==null) {
             e.target.classList.add('outline')
-            setE(e)
+            setLastBtn(e)
         }
         else{
             
-            event.target.classList.remove('outline')
+            lastBtn.target.classList.remove('outline')
             e.target.classList.add('outline')
-            setE(e)
+            setLastBtn(e)
             
         }   
         setAns(e.target.value) 

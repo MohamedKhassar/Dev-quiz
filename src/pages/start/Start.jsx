@@ -5,6 +5,7 @@ import { useLocalStorage } from "../useLocalStorage"
 export default function Start() {
     const [major, setM] = useState("")
     const [d, setD] = useState("none-start")
+    const [lastBtn, setLastBtn] = useState(null)
 
     const { setItem } = useLocalStorage("user")
     const { getItem } = useLocalStorage("user")
@@ -12,19 +13,19 @@ export default function Start() {
     const value = { ...getItem(), major }
 
     const handelClick = (e) => {
+        if (lastBtn==null) {
+            e.target.classList.add('outline')
+            setLastBtn(e)
+        }
+        else{
+            
+            lastBtn.target.classList.remove('outline')
+            e.target.classList.add('outline')
+            
+            setLastBtn(e)
+        } 
         setM(e.target.value)
-        const buttons = document.querySelectorAll(".major-btn")
-        buttons.forEach(button => {
-            // Check if the "outline" class exists in the current button's classList
-            const hasOutlineClass = button.classList.contains("outline");
-            setD("none-start")
-            if (hasOutlineClass) {
-                button.classList.remove("outline")
-                // Do something when the "outline" class is present
-            }
-            return e.target.classList.add("outline")
-            // Do something when the "outline" class is not present
-        });
+        
 
     }
 
