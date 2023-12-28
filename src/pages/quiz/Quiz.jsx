@@ -15,7 +15,7 @@ function Quiz() {
     let [limit,setLimit]=useState(60)
     const [display, setDisplay] = useState('none');
     const value={...getItem(),score:Math.round((correctAnswer*100)/question.length)}
-    const [lastBtn, setLastBtn] = useState()
+    const [lastBtn, setLastBtn] = useState(null)
 
     // console.log(answer);
 
